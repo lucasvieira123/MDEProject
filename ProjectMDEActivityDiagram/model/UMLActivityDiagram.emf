@@ -17,12 +17,13 @@ class Node {
 	attr String name;
 }
 
-@gmf.link(source="source", target="target", style="dot", width="2")
+@gmf.link(source="source", target="target", target.decoration="arrow", style="solid", color="0,0,0")
 class Transition {
 	ref Node source;
 	ref Node target;
 }
 
+@gmf.node(figure = "figures.InitialNodeFigure", label.placement="none")
 class InitialNode extends Node {
 	
 }
@@ -31,6 +32,12 @@ class ActivityNode extends Node {
 
 }
 
+@gmf.node(figure = "figures.FinalNodeFigure", label.placement="none")
 class FinalNode extends Node {
+	
+}
+
+@gmf.node(figure = "figures.DecisionNodeFigure", label.placement="none")
+class DecisionNode extends Node {
 	
 }
