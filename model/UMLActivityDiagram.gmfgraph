@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ASCII"?>
+<gmfgraph:Canvas xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gmfgraph="http://www.eclipse.org/gmf/2006/GraphicalDefinition" name="UMLActivityDiagram">
+  <figures name="Default">
+    <descriptors name="NodeFigure">
+      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="NodeFigure">
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="NodeLabelFigure" text="Node"/>
+      </actualFigure>
+      <accessors accessor="getFigureNodeLabelFigure" figure="//@figures.0/@descriptors.0/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="InitialNodeFigure">
+      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="InitialNodeFigure">
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="InitialNodeLabelFigure" text="InitialNode"/>
+      </actualFigure>
+      <accessors accessor="getFigureInitialNodeLabelFigure" figure="//@figures.0/@descriptors.1/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="ActivityNodeFigure">
+      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="ActivityNodeFigure">
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="ActivityNodeLabelFigure" text="ActivityNode"/>
+      </actualFigure>
+      <accessors accessor="getFigureActivityNodeLabelFigure" figure="//@figures.0/@descriptors.2/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="FinalNodeFigure">
+      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="FinalNodeFigure">
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="FinalNodeLabelFigure" text="FinalNode"/>
+      </actualFigure>
+      <accessors accessor="getFigureFinalNodeLabelFigure" figure="//@figures.0/@descriptors.3/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="TransitionFigure">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="TransitionFigure" lineWidth="2" lineKind="LINE_DOT"/>
+    </descriptors>
+  </figures>
+  <nodes name="Node" figure="NodeFigure"/>
+  <nodes name="InitialNode" figure="InitialNodeFigure"/>
+  <nodes name="ActivityNode" figure="ActivityNodeFigure"/>
+  <nodes name="FinalNode" figure="FinalNodeFigure"/>
+  <connections name="Transition" figure="TransitionFigure"/>
+  <labels name="NodeLabel" figure="NodeFigure" accessor="//@figures.0/@descriptors.0/@accessors.0"/>
+  <labels name="InitialNodeLabel" figure="InitialNodeFigure" accessor="//@figures.0/@descriptors.1/@accessors.0"/>
+  <labels name="ActivityNodeLabel" figure="ActivityNodeFigure" accessor="//@figures.0/@descriptors.2/@accessors.0"/>
+  <labels name="FinalNodeLabel" figure="FinalNodeFigure" accessor="//@figures.0/@descriptors.3/@accessors.0"/>
+</gmfgraph:Canvas>

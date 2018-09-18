@@ -1,0 +1,36 @@
+@namespace(
+	uri="UMLActivityDiagram",
+	prefix="UMLActivityDiagram")
+@gmf
+package UMLActivityDiagram;
+
+@gmf.diagram
+class UMLAcitivityDiagram {
+	@gmf.compartment 
+	val Node[*] nodes;
+	@gmf.compartment
+	val Transition[*] transitions;
+}
+
+@gmf.node(label = "name")
+class Node {
+	attr String name;
+}
+
+@gmf.link(source="source", target="target", style="dot", width="2")
+class Transition {
+	ref Node source;
+	ref Node target;
+}
+
+class InitialNode extends Node {
+	
+}
+
+class ActivityNode extends Node {
+
+}
+
+class FinalNode extends Node {
+	
+}
