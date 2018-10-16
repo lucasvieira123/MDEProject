@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:lts="lts">
+  <lts:LTS name="Act2Lts"/>
+  <lts:InitialState Id="0"/>
+  <lts:FinalState Id="1"/>
+  <lts:Transition label="IN!Atividade 1"/>
+  <lts:Transition label="IN!Atividade 2"/>
+  <lts:Transition label="IN!&lt;unnamed>"/>
+</xmi:XMI>

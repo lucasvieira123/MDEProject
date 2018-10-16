@@ -1,0 +1,85 @@
+-- @path MM=/ad2lts/MetaModel/activitydiagram.ecore
+-- @path MM1=/ad2lts/MetaModel/lts.ecore
+
+
+module ActivityDiagram2LTS;
+create OUT: MM1 from IN: MM;
+
+helper def: id: Integer = 0;
+helper def : idInitialState : Integer = 0;
+
+
+helper context Integer def: inc(): Integer = self + 1;
+
+helper context MM!ActivityDiagram def : test() : Boolean = OclUndefined;
+
+
+helper context MM!InitialNode def : isInitialNode() : Boolean = 
+		if not self.oclIsUndefined() then 
+			true 
+		else 
+			false 
+		endif;
+
+
+rule ActivityDiagram2LTS {
+	from
+		activityDiagram: MM!ActivityDiagram
+	to
+		lts: MM1!LTS (
+			name <- activityDiagram.name
+		)
+}
+
+rule initialNode2initalState {
+	from
+		--ad : MM!ActivityDiagram(ad.initialNode.isInitialNode().debug())
+		--initialAd : MM!InitialNode (initialAd.isInitialNode().debug())
+		i:MM!InitialNode
+	to 
+		initialLts : MM1!InitialState (
+			Id <- thisModule.idInitialState.toString(),
+			incoming <- OclUndefined,
+			outgoing <- i.outgoing
+		)
+}
+
+rule finalNode2finalState {
+	from
+		f : MM!FinalNode
+	to 
+		fs : MM1!FinalState (
+			Id <- thisModule.id.inc().toString(),
+			incoming <- OclUndefined
+		)
+}
+
+lazy rule activityNode2State {
+	from
+		ac : MM!ActivityDiagram--, act : MM!ActivityNode
+	to 
+		stlts : MM1!IntermediateState (
+			--Id <- '2',
+			incoming <- ac.incoming,
+			outgoing <- OclUndefined
+		)
+		
+		do {
+			for (iterator in ac.activityNodes) {
+					--stlts.Id <- thisModule.idInitialState + 1;
+					stlts.incoming <- iterator.incoming;
+			}
+	
+		}
+}
+
+rule acTransition2ltsTransiction {
+	from
+		acT : MM!Transition
+	to 
+		ltsT : MM1!Transition (
+			label <- acT.target.toString()
+			--target <- acT.target,
+			--source <- acT.source
+		)
+}

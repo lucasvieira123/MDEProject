@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="lts" nsURI="lts" nsPrefix="lts">
+  <eAnnotations source="gmf"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LTS">
+    <eAnnotations source="gmf.diagram">
+      <details key="model.extension" value="lts"/>
+      <details key="diagram.extension" value="lts_diagram"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transitions" lowerBound="1"
+        upperBound="-1" eType="#//Transition" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="initialState" eType="#//InitialState"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="intermediateStates" upperBound="-1"
+        eType="#//IntermediateState" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="finalState" eType="#//FinalState"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Transition">
+    <eAnnotations source="gmf.link">
+      <details key="source" value="source"/>
+      <details key="target" value="target"/>
+      <details key="target.decoration" value="arrow"/>
+      <details key="style" value="solid"/>
+      <details key="color" value="0,0,0"/>
+      <details key="label" value="label"/>
+      <details key="tool.small.bundle" value="lts.edit"/>
+      <details key="tool.small.path" value="/icons/full/obj16/Transition.gif"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//State"
+        eOpposite="#//State/incoming"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//State"
+        eOpposite="#//State/outgoing"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="State">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="incoming" upperBound="-1"
+        eType="#//Transition" eOpposite="#//Transition/target"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outgoing" upperBound="-1"
+        eType="#//Transition" eOpposite="#//Transition/source"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InitialState" eSuperTypes="#//State">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="Id"/>
+      <details key="figure" value="figures.InitialState"/>
+      <details key="label.icon" value="false"/>
+      <details key="label.placement" value="external"/>
+      <details key="tool.small.bundle" value="lts.edit"/>
+      <details key="tool.small.path" value="/icons/full/obj16/initialState.png"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FinalState" eSuperTypes="#//State">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="Id"/>
+      <details key="figure" value="figures.FinalState"/>
+      <details key="label.icon" value="false"/>
+      <details key="label.placement" value="external"/>
+      <details key="tool.small.bundle" value="lts.edit"/>
+      <details key="tool.small.path" value="/icons/full/obj16/finalstate.png"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IntermediateState" eSuperTypes="#//State">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="Id"/>
+      <details key="figure" value="figures.State"/>
+      <details key="label.icon" value="false"/>
+      <details key="label.placement" value="external"/>
+      <details key="tool.small.bundle" value="lts.edit"/>
+      <details key="tool.small.path" value="/icons/full/obj16/state.png"/>
+    </eAnnotations>
+  </eClassifiers>
+</ecore:EPackage>
